@@ -1,0 +1,33 @@
+{
+  "name": "viralitx-console",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/console.js",
+    "console": "node --loader ts-node/esm -r tsconfig-paths/register src/console.ts"
+  },
+  "dependencies": {
+    "chalk": "5.4.1",
+    "clear": "0.1.0",
+    "commander": "13.1.0",
+    "figlet": "1.8.0"
+  },
+  "devDependencies": {
+    "@types/clear": "0.1.4",
+    "@types/figlet": "1.7.0",
+    "@types/node": "22.13.4",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": "20.18.1",
+    "npm": "please-use-yarn",
+    "yarn": ">=1.22.19"
+  },
+  "engineStrict": true
+}
