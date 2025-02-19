@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy Console to Production
 
 on:
   push:
@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Copy Files to Server
+      - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
           source: "."
-          target: "/data/viralitx-prod-api"
+          target: "/data/viralitx-prod-console"
           port: ${{ secrets.SERVER_SSH_PORT }}
           proxy_port: ${{ secrets.SERVER_SSH_PORT }}
 
-      - name: Deploy with Docker Compose on Server
+      - name: Deploy with Docker Compose on server
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -33,7 +33,7 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
 
           script: |
-            cd /data/viralitx-prod-api
+            cd /data/viralitx-prod-console
             docker compose -f docker-compose.prod.yml down
             docker compose -f docker-compose.prod.yml build
             docker compose -f docker-compose.prod.yml up -d
