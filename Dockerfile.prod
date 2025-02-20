@@ -27,5 +27,8 @@ RUN yarn install --production --frozen-lockfile
 
 COPY --from=builder /app/dist /app/dist
 
-# Default command. Displays help if no subcommand is given
-CMD ["node", "dist/console.js", "--help"]
+# Set the ENTRYPOINT so that arguments are appended to it.
+ENTRYPOINT ["node", "dist/console.js"]
+
+# Default command in case no arguments are provided.
+CMD ["--help"]
