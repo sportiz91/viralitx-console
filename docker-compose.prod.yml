@@ -1,4 +1,7 @@
-version: "3.9"
+# @TODO: voy por ver como correr comandos en el container del server.
+# Luego, conectarme a la base de datos de producción y crear los scripts para generar usuarios de prueba, para borrar la mock data
+# Y también para crear el Admin User.
+# Link al chat: https://chatgpt.com/c/67b58577-6ed8-8012-8897-3c1951320d4d
 
 services:
   console:
