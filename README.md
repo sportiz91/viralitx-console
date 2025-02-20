@@ -124,6 +124,12 @@ This command uses the ENTRYPOINT defined in the production Dockerfile so that an
 
 3. Note: If no command is provided, the container will display the help message by default.
 
+Note: This will generate a lot of stopped containers on your server. You can remove them with:
+
+```bash
+docker system prune -a
+```
+
 ## Available Commands
 
 - `hello`: Prints "Hello, World!" to the console.
