@@ -10,6 +10,7 @@ A simple TypeScript-based console application that uses Commander to manage subc
 - [Project Structure](#project-structure)
 - [Configuration Files](#configuration-files)
 - [Usage](#usage)
+- [Production Setup](#production-setup)
 - [Available Commands](#available-commands)
 - [Enforcing Environment Requirements](#enforcing-environment-requirements)
 - [Troubleshooting](#troubleshooting)
@@ -102,6 +103,26 @@ yarn run build
 2. Run the compiled code:
 
 yarn run start hello
+
+## Production Setup
+
+In production, the console is dockerized and runs as part of your external Docker network (viralitx-net), ensuring it can connect to the same MongoDB container as the API.
+
+1. Build the Docker image for production:
+
+```bash
+docker compose -f docker-compose.prod.yml build
+```
+
+2. Run the console with a specific command (for example, hello):
+
+```bash
+docker compose -f docker-compose.prod.yml run console hello
+```
+
+This command uses the ENTRYPOINT defined in the production Dockerfile so that any extra arguments (like hello) are appended to the default command.
+
+3. Note: If no command is provided, the container will display the help message by default.
 
 ## Available Commands
 
