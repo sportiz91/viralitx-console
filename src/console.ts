@@ -3,19 +3,20 @@ import figlet from "figlet";
 import chalk from "chalk";
 import { Command } from "commander";
 
-import registerCommands from "./commands";
+import logger from "@/utils/logger";
+import registerCommands from "@/commands";
 
 const logHeader = (): void => {
-  console.log(
+  logger.info(
     chalk.bold.blueBright(
       figlet.textSync("LASANTONETA", { horizontalLayout: "full" })
     )
   );
-  console.log("-------------------------------------");
-  console.log(
+  logger.info("-------------------------------------");
+  logger.info(
     chalk.bold.blue("Developed by Lasantoneta (https://santiagoportiz.tech)")
   );
-  console.log("-------------------------------------");
+  logger.info("-------------------------------------");
 };
 
 const main = (): void => {

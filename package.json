@@ -3,24 +3,32 @@
   "version": "1.0.0",
   "main": "main.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "type-check": "tsc --noEmit",
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "start": "node dist/console.js",
-    "console": "node --loader ts-node/esm -r tsconfig-paths/register src/console.ts"
+    "console": "yarn build && yarn start"
   },
   "dependencies": {
-    "chalk": "5.4.1",
+    "app-root-path": "3.1.0",
+    "axios": "1.7.9",
+    "chalk": "^4.1.2",
     "clear": "0.1.0",
     "commander": "13.1.0",
-    "figlet": "1.8.0"
+    "dotenv": "16.4.7",
+    "figlet": "1.8.0",
+    "joi": "17.13.3",
+    "mongoose": "8.10.1",
+    "winston": "3.17.0",
+    "winston-rotating-file": "0.2.0"
   },
   "devDependencies": {
     "@types/clear": "0.1.4",
     "@types/figlet": "1.7.0",
+    "@types/mongoose": "5.11.97",
     "@types/node": "22.13.4",
     "ts-node": "10.9.2",
+    "tsc-alias": "1.8.10",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.7.3"
   },
